@@ -1,13 +1,26 @@
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 
+/**
+ *  Creates new box object from form input fields
+ *
+ * Props: addBox()
+ *
+ * State: box form data
+ *
+ * BoxList  >>  NewBoxForm
+ */
 function NewBoxForm({ addBox }) {
   const initialForm = {
     height: "",
     width: "",
-    backgroundColor: "",
+    backgroundColor: ""
   };
   const [formData, setFormData] = useState(initialForm);
 
+  /**
+   *  Handles input field changes and updates form state
+   */
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((fData) => ({
@@ -16,6 +29,9 @@ function NewBoxForm({ addBox }) {
     }));
   }
 
+  /**
+   *  Handle submission of new Box data
+   */
   function handleSubmit(evt) {
     evt.preventDefault();
     addBox(formData);
@@ -39,7 +55,7 @@ function NewBoxForm({ addBox }) {
         onChange={handleChange}
         value={formData.width}
       />
-      <label htmlFor="background color">Background Color: </label>
+      <label htmlFor="backgroundColor">Background Color: </label>
       <input
         id="backgroundColor"
         name="backgroundColor"

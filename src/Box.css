@@ -1,3 +1,7 @@
 .Box {
   margin: 2px;
 }
+
+.Box-deleteBtn {
+  background-color: tomato;
+}
